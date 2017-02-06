@@ -22,7 +22,7 @@ test-race: ## Run tests with race detector
 
 fmt: ## Run gofmt linter
 	@for d in `govendor list -no-status +local | sed 's/github.com.bryanjeal.go-tmpl/./'` ; do \
-		if [ "`gofmt -l $$d/*.go | tee /dev/stderr`" ]; then \
+		if [ "`gofmt -s -l $$d/*.go | tee /dev/stderr`" ]; then \
 			echo "^ improperly formatted go files" && echo && exit 1; \
 		fi \
 	done

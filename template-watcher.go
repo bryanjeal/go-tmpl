@@ -41,34 +41,34 @@ type tmplFilename struct {
 // Template Data DB schema
 var schema = &memdb.DBSchema{
 	Tables: map[string]*memdb.TableSchema{
-		"tmplData": &memdb.TableSchema{
+		"tmplData": {
 			Name: "tmplData",
 			Indexes: map[string]*memdb.IndexSchema{
-				"id": &memdb.IndexSchema{
+				"id": {
 					Name:    "id",
 					Unique:  true,
 					Indexer: &memdb.StringFieldIndex{Field: "Name"},
 				},
-				"baseid": &memdb.IndexSchema{
+				"baseid": {
 					Name:         "baseid",
 					AllowMissing: true,
 					Indexer:      &memdb.StringFieldIndex{Field: "BaseTmplID"},
 				},
 			},
 		},
-		"tmplFilename": &memdb.TableSchema{
+		"tmplFilename": {
 			Name: "tmplFilename",
 			Indexes: map[string]*memdb.IndexSchema{
-				"id": &memdb.IndexSchema{
+				"id": {
 					Name:    "id",
 					Unique:  true,
 					Indexer: &memdb.UUIDFieldIndex{Field: "ID"},
 				},
-				"name": &memdb.IndexSchema{
+				"name": {
 					Name:    "name",
 					Indexer: &memdb.StringFieldIndex{Field: "Name"},
 				},
-				"filename": &memdb.IndexSchema{
+				"filename": {
 					Name:    "filename",
 					Indexer: &memdb.StringFieldIndex{Field: "Filename"},
 				},
