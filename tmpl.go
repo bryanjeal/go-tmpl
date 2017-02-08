@@ -34,6 +34,24 @@ var (
 	ErrNoTmpl       = errors.New("no template data provided")
 )
 
+// Ctx is a common context for other modules to embed/use
+type Ctx struct {
+	Flashes      []interface{}
+	FlashesInfo  []interface{}
+	FlashesWarn  []interface{}
+	FlashesError []interface{}
+	CsrfToken    string
+	Data         map[string]interface{}
+}
+
+// EmailMessage represents the reusable core of an email
+type EmailMessage struct {
+	From      string
+	Subject   string
+	PlainText string
+	TplName   string
+}
+
 // TplSys is the template helper system
 type TplSys struct {
 	baseDir string
